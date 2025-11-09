@@ -1,0 +1,128 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/TasksView.gd" id="1"]
+
+[node name="TasksView" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/margin_left = 16
+custom_constants/margin_top = 16
+custom_constants/margin_right = 16
+custom_constants/margin_bottom = 16
+
+[node name="MainVBox" type="VBoxContainer" parent="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 0
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/MainVBox"]
+text = "Habit Evolution: Tasks"
+horizontal_alignment = 1
+
+[node name="AddTaskPanel" type="PanelContainer" parent="MarginContainer/MainVBox"]
+size_flags_vertical = 0
+
+[node name="AddTaskVBox" type="VBoxContainer" parent="MarginContainer/MainVBox/AddTaskPanel"]
+custom_constants/separation = 8
+
+[node name="FormTitle" type="Label" parent="MarginContainer/MainVBox/AddTaskPanel/AddTaskVBox"]
+text = "Add a new habit"
+
+[node name="NameInput" type="LineEdit" parent="MarginContainer/MainVBox/AddTaskPanel/AddTaskVBox"]
+placeholder_text = "Task name"
+max_length = 80
+
+[node name="ScheduleRow" type="HBoxContainer" parent="MarginContainer/MainVBox/AddTaskPanel/AddTaskVBox"]
+custom_constants/separation = 12
+
+[node name="ScheduleLabel" type="Label" parent="MarginContainer/MainVBox/AddTaskPanel/AddTaskVBox/ScheduleRow"]
+text = "Schedule"
+size_flags_horizontal = 1
+
+[node name="ScheduleType" type="OptionButton" parent="MarginContainer/MainVBox/AddTaskPanel/AddTaskVBox/ScheduleRow"]
+size_flags_horizontal = 3
+
+[node name="TimesRow" type="HBoxContainer" parent="MarginContainer/MainVBox/AddTaskPanel/AddTaskVBox"]
+custom_constants/separation = 12
+visible = false
+
+[node name="TimesLabel" type="Label" parent="MarginContainer/MainVBox/AddTaskPanel/AddTaskVBox/TimesRow"]
+text = "Times per week"
+size_flags_horizontal = 1
+
+[node name="TimesSpin" type="SpinBox" parent="MarginContainer/MainVBox/AddTaskPanel/AddTaskVBox/TimesRow"]
+size_flags_horizontal = 3
+min_value = 1
+max_value = 14
+value = 3
+
+[node name="DifficultyRow" type="HBoxContainer" parent="MarginContainer/MainVBox/AddTaskPanel/AddTaskVBox"]
+custom_constants/separation = 12
+
+[node name="DifficultyLabel" type="Label" parent="MarginContainer/MainVBox/AddTaskPanel/AddTaskVBox/DifficultyRow"]
+text = "Difficulty"
+size_flags_horizontal = 1
+
+[node name="DifficultyOption" type="OptionButton" parent="MarginContainer/MainVBox/AddTaskPanel/AddTaskVBox/DifficultyRow"]
+size_flags_horizontal = 3
+
+[node name="GroupInput" type="LineEdit" parent="MarginContainer/MainVBox/AddTaskPanel/AddTaskVBox"]
+placeholder_text = "Group (e.g. Health)"
+max_length = 40
+
+[node name="AddTaskButton" type="Button" parent="MarginContainer/MainVBox/AddTaskPanel/AddTaskVBox"]
+text = "Add Task"
+size_flags_horizontal = 3
+
+[node name="TodaySection" type="VBoxContainer" parent="MarginContainer/MainVBox"]
+custom_constants/separation = 8
+
+[node name="TodayLabel" type="Label" parent="MarginContainer/MainVBox/TodaySection"]
+text = "Today's focus"
+
+[node name="TodayEmpty" type="Label" parent="MarginContainer/MainVBox/TodaySection"]
+text = "No tasks scheduled for today yet."
+visible = false
+
+[node name="TodayTasksList" type="VBoxContainer" parent="MarginContainer/MainVBox/TodaySection"]
+custom_constants/separation = 8
+
+[node name="WeeklySection" type="VBoxContainer" parent="MarginContainer/MainVBox"]
+custom_constants/separation = 8
+
+[node name="WeeklyLabel" type="Label" parent="MarginContainer/MainVBox/WeeklySection"]
+text = "Weekly tasks"
+
+[node name="WeeklyEmpty" type="Label" parent="MarginContainer/MainVBox/WeeklySection"]
+text = "No weekly tasks yet."
+visible = false
+
+[node name="WeeklyTasksList" type="VBoxContainer" parent="MarginContainer/MainVBox/WeeklySection"]
+custom_constants/separation = 4
+
+[node name="TimesSection" type="VBoxContainer" parent="MarginContainer/MainVBox"]
+custom_constants/separation = 8
+
+[node name="TimesLabel" type="Label" parent="MarginContainer/MainVBox/TimesSection"]
+text = "X times/week goals"
+
+[node name="TimesEmpty" type="Label" parent="MarginContainer/MainVBox/TimesSection"]
+text = "No times-per-week goals yet."
+visible = false
+
+[node name="TimesTasksList" type="VBoxContainer" parent="MarginContainer/MainVBox/TimesSection"]
+custom_constants/separation = 4
