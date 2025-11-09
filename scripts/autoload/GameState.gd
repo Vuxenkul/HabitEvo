@@ -131,7 +131,7 @@ func load_state() -> void:
         return
     var content := file.get_as_text()
     file.close()
-    var result := JSON.parse_string(content)
+    var result: Variant = JSON.parse_string(content)
     if typeof(result) != TYPE_DICTIONARY:
         tasks = []
         total_xp = 0
