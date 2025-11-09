@@ -98,7 +98,7 @@ func _populate_weekly_tasks() -> void:
     for task in tasks:
         var progress := GameState.get_weekly_progress(task)
         var label := Label.new()
-        var status := progress >= 1 ? "Completed for this week" : "Pending"
+        var status := "Completed for this week" if progress >= 1 else "Pending"
         label.text = "%s (%s) - %s" % [task.name, task.group, status]
         weekly_tasks_list.add_child(label)
 
@@ -130,14 +130,14 @@ func _create_task_row(task: Task, completed: bool) -> Control:
     info.add_child(name_label)
 
     var meta_label := Label.new()
-    var group_text := task.group.is_empty() ? "No group" : task.group
+    var group_text := "No group" if task.group.is_empty() else task.group
     meta_label.text = "%s • %d XP" % [group_text, task.difficulty_xp]
     info.add_child(meta_label)
 
     row.add_child(info)
 
     var button := Button.new()
-    button.text = completed ? "Done" : "Complete"
+    button.text = "Done" if completed else "Complete"
     button.disabled = completed
     button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
     var task_id := task.id
